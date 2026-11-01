@@ -461,9 +461,10 @@
         "required": [
           "text",
           "url",
+          "icon_url",
           "required"
         ],
-        "description": "What to show beside the figure: the words, linked to the site's report.",
+        "description": "What to show beside the figure: the words, linked to the site's report. The icon may go beside the words; on its own it is not attribution.",
         "properties": {
           "text": {
             "type": "string",
@@ -472,6 +473,11 @@
           "url": {
             "type": "string",
             "format": "uri"
+          },
+          "icon_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "mxverify's 32-pixel icon (PNG), to show beside the words if you like."
           },
           "required": {
             "type": "boolean",
@@ -760,6 +766,7 @@
           "attribution": {
             "text": "BV by mxverify",
             "url": "https://mxverify.uk/publications/google.com",
+            "icon_url": "https://mxverify.uk/mxverify/icon-32.png",
             "required": true
           }
         }
@@ -774,6 +781,7 @@
           "attribution": {
             "text": "BV by mxverify",
             "url": "https://mxverify.uk/publications/unrated-site.com",
+            "icon_url": "https://mxverify.uk/mxverify/icon-32.png",
             "required": true
           },
           "reason": "No authority rating is on record for this site, so a link from it is not valued."

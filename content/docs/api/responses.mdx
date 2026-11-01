@@ -17,7 +17,7 @@ description: Every field of a result, and what each status means.
 | `bv.version` | string | The BV model the figure was worked out under, for example `"2.8"`. |
 | `bv.audited` | boolean | Links placed on the site have been checked by bklink audits. |
 | `report_url` | string | The site's mxverify report. Present for `valued` and `unrated`, and as the checker page when a valuation was refused. |
-| `attribution` | object | `{"text": "BV by mxverify", "url": <report_url>, "required": true}`: what to show beside the figure. Present for `valued` and `unrated`. |
+| `attribution` | object | `{"text": "BV by mxverify", "url": <report_url>, "icon_url": <icon>, "required": true}`: what to show beside the figure. `icon_url` is mxverify's 32-pixel icon, optional beside the words. Present for `valued` and `unrated`. |
 | `retry_after` | number | Seconds until it is worth asking again. Present for `valuing` and some `not_valued`. |
 | `reason` | string | Why, in plain words, for `unrated`, `not_valued`, `not_found` and `invalid`. |
 
@@ -27,7 +27,7 @@ description: Every field of a result, and what each status means.
 |---|---|---|
 | `valued` | The site's BV is in `bv`. | The figure, with "BV by mxverify". |
 | `unrated` | No authority rating is on record for the site, so a link from it is not valued. | Nothing. Never show $0. |
-| `valuing` | mxverify had never valued the site and is valuing it now. | Ask again after `retry_after` seconds. |
+| `valuing` | mxverify had never valued the site and is valuing it now. | Nothing yet: no figure, so nothing to attribute. Ask again after `retry_after` seconds. |
 | `not_valued` | A new site could not be valued now: your key's daily limit, the day's capacity, your partner balance, or a moment's failure. `reason` says which. | Ask again after `retry_after`. |
 | `not_found` | No website was found at the address when it was valued. This answer holds for a day. | Nothing. |
 | `invalid` | The target is not a website address. | Fix the input. |
